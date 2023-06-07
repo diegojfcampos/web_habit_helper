@@ -1,0 +1,23 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "vite.config.js",
+        "use": "@vercel/static-build"
+      }
+    ],
+    "routes": [
+      { "src": "/(.*).js", "headers": { "cache-control": "public, max-age=31536000, immutable" } },
+      { "src": "/(.*).css", "headers": { "cache-control": "public, max-age=31536000, immutable" } },
+      { "src": "/(.*).png", "headers": { "cache-control": "public, max-age=31536000, immutable" } },
+      { "src": "/(.*).jpg", "headers": { "cache-control": "public, max-age=31536000, immutable" } },
+      { "src": "/(.*).jpeg", "headers": { "cache-control": "public, max-age=31536000, immutable" } },
+      { "src": "/(.*).gif", "headers": { "cache-control": "public, max-age=31536000, immutable" } },
+      { "src": "/(.*).svg", "headers": { "cache-control": "public, max-age=31536000, immutable" } },
+      { "src": "/(.*).woff", "headers": { "cache-control": "public, max-age=31536000, immutable" } },
+      { "src": "/(.*).woff2", "headers": { "cache-control": "public, max-age=31536000, immutable" } },
+      { "src": "/(.*).json", "headers": { "cache-control": "public, max-age=31536000, immutable" } },
+      { "src": "/(.*).txt", "headers": { "cache-control": "public, max-age=31536000, immutable" } }
+    ]
+  }
+  
