@@ -19,6 +19,13 @@ interface HabitsInfo {
     completedHabits: string[]
 }
 
+const requestOptions = {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+
 export function HabitsList({ date, onCompletedChange }: HabitsListProps) {
 
     const[habitsInfo, setHabitsInfo] = useState<HabitsInfo>()
