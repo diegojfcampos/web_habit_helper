@@ -25,13 +25,13 @@ export function HabitsList({ date, onCompletedChange }: HabitsListProps) {
 
     useEffect(() => {
         api.get('/day', {
-            params: {
-                date: date.toISOString()
-            }
+          params: {
+            date: date.toISOString()
+          }
         }).then(response => {
-            setHabitsInfo(response.data)
+          setHabitsInfo(response.data)
         })
-    }, [])
+      }, [date])
 
     async function handleToggleHabit(habitId: string){
         const isHabitCompleted = habitsInfo!.completedHabits.includes(habitId)        
