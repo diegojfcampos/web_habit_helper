@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 export function generateYearDates() {
   //const firstDayOfYear = dayjs().startOf('year');   
   const firstDayOfYear = dayjs().startOf('year').month(4).date(7);
-  const today = dayjs(); 
+  const today = dayjs().subtract(1, 'day'); 
   const dates = [];
   let compareDate = firstDayOfYear;
 
