@@ -3,6 +3,8 @@ import { ProgressBar } from './ProgressBar';
 import dayjs from 'dayjs';
 import { HabitsList } from './HabitsList';
 import { useState } from 'react';
+import { useEffect } from 'react';
+
 
 
 interface HabitDayProps {
@@ -11,24 +13,23 @@ interface HabitDayProps {
     amount?: number
 }
 
-export function HabitDay({defaultcompleted  = 0, amount = 0, date}: HabitDayProps) {
-    const[completed, setCompleted] = useState(defaultcompleted)
+}
 
-    console.log("completed: " + completed)  
-    console.log("defaultcompleted: " + defaultcompleted)
-    
-    
-    const completePercentage = amount > 0 ? Math.round((completed / amount) * 100) : 0
-    
-    
-    console.log("completePercentage: " + completePercentage)
-   
-    const dayAndMouth = dayjs(date).format('DD/MM')
-    const dayOfWeek = dayjs(date).format('dddd')
+export function HabitDay({ defaultcompleted = 0, amount = 0, date }: HabitDayProps) {
+  const [completed, setCompleted] = useState(defaultcompleted);
+  const [completePercentage, setCompletePercentage] = useState(0);
 
-    function handleCompletedChanged(completed: number){        
-        setCompleted(completed)        
-    }
+  useEffect(() => {
+    const percentage = amount > 0 ? Math.round((completed / amount) * 100) : 0;
+    setCompletePercentage(percentage);
+  }, [completed, amount]);
+
+  const dayAndMouth = dayjs(date).format('DD/MM');
+  const dayOfWeek = dayjs(date).format('dddd');
+
+  function handleCompletedChanged(completed: number) {
+    setCompleted(completed);
+  }
 
     return (
         <Popover.Root>
