@@ -26,39 +26,51 @@ const requestOptions = {
     },
   };
 
-export function HabitsList({ date, onCompletedChange }: HabitsListProps) {
-
-    const[habitsInfo, setHabitsInfo] = useState<HabitsInfo>()
-
+  export function HabitsList({ date, onCompletedChange }: HabitsListProps) {
+    const [habitsInfo, setHabitsInfo] = useState<HabitsInfo | null>(null);
+  
     useEffect(() => {
-        api.get('/day', {
-          params: {
-            date: date.toISOString()
-          }
-        }).then(response => {
-          setHabitsInfo(response.data)
-        })
-      }, [date])
-
-      async function handleToggleHabit(habitId: string) {
-        const isHabitCompleted = habitsInfo!.completedHabits.includes(habitId);
-        let completedHabits: string[] = [];
-      
-        await api.patch(`/habits/${habitId}/toggle`, null, requestOptions);
-      
-        if (isHabitCompleted) {
-          completedHabits = habitsInfo!.completedHabits.filter(habit => habit !== habitId);
-        } else {
-          completedHabits = [...habitsInfo!.completedHabits, habitId];
-        }
-      
+      // Recupera os hábitos concluídos do armazenamento local (local storage)
+      const completedHabitsFromStorage = localStorage.getItem('completedHabits');
+      const completedHabits = completedHabitsFromStorage ? JSON.parse(completedHabitsFromStorage) : [];
+  
+      api.get('/day', {
+        params: {
+          date: date.toISOString(),
+        },
+      }).then((response) => {
+        const habitsData = response.data;
+  
         setHabitsInfo({
-          possibleHabits: habitsInfo!.possibleHabits,
-          completedHabits: completedHabits
+          possibleHabits: habitsData.possibleHabits,
+          completedHabits: completedHabits,
         });
-      
-        onCompletedChange!(completedHabits.length);
+      });
+    }, [date]);
+  
+    async function handleToggleHabit(habitId: string) {
+      if (!habitsInfo) return; 
+  
+      const isHabitCompleted = habitsInfo.completedHabits.includes(habitId);
+      let completedHabits: string[] = [];
+  
+      await api.patch(`/habits/${habitId}/toggle`, null, requestOptions);
+  
+      if (isHabitCompleted) {
+        completedHabits = habitsInfo.completedHabits.filter((habit) => habit !== habitId);
+      } else {
+        completedHabits = [...habitsInfo.completedHabits, habitId];
       }
+  
+      
+      setHabitsInfo({
+        possibleHabits: habitsInfo.possibleHabits,
+        completedHabits: completedHabits,
+      });
+      localStorage.setItem('completedHabits', JSON.stringify(completedHabits));
+  
+      onCompletedChange!(completedHabits.length);
+    }
     const isDateInPast = dayjs(date).endOf("day").isBefore(new Date())
 
     return (

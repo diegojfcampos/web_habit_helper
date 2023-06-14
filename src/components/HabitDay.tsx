@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 
 
 
-interface HabitDayProps {
+interface HabitDayProps {  
     date: Date
     defaultcompleted?: number
     amount?: number
