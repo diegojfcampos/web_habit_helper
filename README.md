@@ -19,12 +19,46 @@ GitHub Pages
   <img align="center" alt="Diego-CSS" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg">   
   
 </div>
+
+
+### Technologies
     
-  ## Security
-
-    • Routes are protected for JWT and Auth
-    • Data are validated e sanitized by Fastify Schemas 
-
+  - React JS
+  - Typescript
+  - Vite
+  - Tailwindcss
+  - Radix-ui
+ 
+#### CyberSecurity
+  - Zod 
+  
+## Dependencies
+```bash
+npm install
+```
+```bash
+  "dependencies": {
+    "@radix-ui/react-checkbox": "^1.0.3",
+    "@radix-ui/react-dialog": "^1.0.3",
+    "@radix-ui/react-popover": "^1.0.5",
+    "axios": "^1.4.0",
+    "clsx": "^1.2.1",
+    "dayjs": "^1.11.7",
+    "phosphor-react": "^1.4.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@vitejs/plugin-react": "^3.1.0",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.3.1",
+    "typescript": "^4.9.3",
+    "vite": "^4.2.0"
+  }
+```
 ## Run Locally
 
 Clone the project
@@ -33,14 +67,23 @@ Clone the project
   git clone https://github.com/diegojfcampos/web_habit_helper.git
 ```
 
-```bash
-    npm install
-    npm run dev
-    
+Go to the project directory
 
+```bash
+  cd web_habit_helper
 ```
 
+Install dependencies
 
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run start
+```
 ## Authors
 
 - [@diegojfcampos](https://www.github.com/diegojfcampos)
