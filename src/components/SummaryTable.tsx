@@ -9,6 +9,7 @@ const summaryDates = generateYearDates()
 const minimunSummaryDaySize = 18 * 7;
 const amountOfDaysToFill = minimunSummaryDaySize - summaryDates.length;
 
+console.log(summaryDates)
 type Summary = Array<{
     id: string;
     date: string;
