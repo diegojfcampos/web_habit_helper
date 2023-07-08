@@ -14,7 +14,7 @@ export function Header(){
                 type="button"                 
                 className="border border-violet-500 font-semibold rounded-lg px-6 py-4 flex items-center gap-3 hover:border-violet-300"
             >        
-            <Plus size={20} className="text-violet-500 font-bold text-5xl"/>
+            <Plus size={20} className="text-violet- font-semibold text-lg"/>
                 New Habit
             </Dialog.Trigger >
             <Dialog.Portal>
@@ -24,7 +24,7 @@ export function Header(){
                         <X size={10} aria-label="Close"/>
                     </Dialog.Close>
                 
-                <Dialog.Title className="text-3xL leading-tight font-extrabold text-violet-500" >
+                <Dialog.Title className="text-3xL leading-tight font-extrabold text-violet-700" >
                     Create a New Habit
                 </Dialog.Title> 
                 
