@@ -42,7 +42,7 @@ export function NewHabitForm(){
         <form onSubmit={createNewhabit} className="w-full flex flex-col mt-6">
             <label htmlFor="habit" className="font-semibold leading-tight">What's your commitment?</label>
             <input 
-                className="font-bold p-4 rounded-lg bg-zinc-800 text-green-500 placeholder:text-zinc-400" 
+                className="border-green-500 font-bold p-4 rounded-lg bg-zinc-800 text-green-500 placeholder:text-zinc-400" 
                 type="text" id="title" 
                 placeholder="gym, study 3h, sleep 8h, etc..." 
                 autoFocus
