@@ -20,9 +20,9 @@ export function HabitDay({ defaultcompleted = 0, amount = 0, date }: HabitDayPro
   const [completed, setCompleted] = useState(defaultcompleted);
  
   console.log("amount " + amount)
-  const completePercentage = amount > 0 ? Math.round(( amount / completed) * 100) : 0;
+  const completePercentage = amount > 0 ? Math.round(( completed / amount) * 100) : 0;
   console.log("completePercentage " + completePercentage)
-  
+  console.log("completed out of handle" + completed)
  
   const dayAndMouth = dayjs(date).format('DD/MM');
   const dayOfWeek = dayjs(date).format('dddd');
