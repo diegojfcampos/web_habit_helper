@@ -23,7 +23,7 @@ export function SummaryTable(){
 
     useEffect(() => {
         api.get('/summary').then(response => {
-            setSummary(response.data)
+            setSummary(response.data.summary)
             
         })
     }, [])
