@@ -20,7 +20,7 @@ export function HabitDay({ defaultcompleted = 0, amount = 0, date }: HabitDayPro
   const [completed, setCompleted] = useState(defaultcompleted);
   const [completePercentage, setCompletePercentage] = useState(0);
     
-  const percentage = amount > 0 ? Math.round((defaultcompleted / amount) * 100) : 0;
+  const percentage = amount > 0 ? Math.round((completed / amount) * 100) : 0;
   
   useEffect(() => {
     
