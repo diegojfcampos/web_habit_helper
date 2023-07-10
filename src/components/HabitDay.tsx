@@ -21,7 +21,10 @@ export function HabitDay({ defaultcompleted = 0, amount = 0, date }: HabitDayPro
  
   console.log("habits amount " + amount)
   
-  const completePercentage = amount > 0 ? Math.round(( completed / amount) * 100) : 0;
+  let completePercentage = amount > 0 ? Math.round(( completed / amount) * 100) : 0;
+  if(completePercentage > 100) {
+    completePercentage = 100
+  }
   console.log("completePercentage " + completePercentage)
   console.log("habits completed " + completed)
  
