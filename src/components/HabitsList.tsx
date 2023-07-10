@@ -36,7 +36,8 @@ const requestOptions = {
   
       api.get('/day', {
         params: {
-          date: date.toISOString(),
+          startDate: dayjs(date).startOf('day').toISOString(),
+          endDate: dayjs(date).endOf('day').toISOString(),
         },
       }).then((response) => {
         const habitsData = response.data;
