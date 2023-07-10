@@ -69,7 +69,9 @@ const requestOptions = {
       });
       localStorage.setItem('completedHabits', JSON.stringify(completedHabits));
   
-      onCompletedChange!(completedHabits.length);
+      if (onCompletedChange) {
+        onCompletedChange(completedHabits.length);
+      }
     }
     const isDateInPast = dayjs(date).endOf("day").isBefore(new Date())
 
