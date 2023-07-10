@@ -36,8 +36,7 @@ const requestOptions = {
   
       api.get('/day', {
         params: {
-              startDate: dayjs(date).startOf('day').toISOString(),
-    endDate: dayjs(date).endOf('day').toISOString(),
+          date: date.toISOString(),
         },
       }).then((response) => {
         const habitsData = response.data;
@@ -70,9 +69,7 @@ const requestOptions = {
       });
       localStorage.setItem('completedHabits', JSON.stringify(completedHabits));
   
-     
       onCompletedChange!(completedHabits.length);
-      
     }
     const isDateInPast = dayjs(date).endOf("day").isBefore(new Date())
 
