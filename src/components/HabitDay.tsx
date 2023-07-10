@@ -3,7 +3,7 @@ import { ProgressBar } from './ProgressBar';
 import dayjs from 'dayjs';
 import { HabitsList } from './HabitsList';
 import { useState } from 'react';
-import { useEffect } from 'react';
+
 import clsx from 'clsx';
 
 
@@ -20,6 +20,7 @@ export function HabitDay({ defaultcompleted = 0, amount = 0, date }: HabitDayPro
   const [completed, setCompleted] = useState(defaultcompleted);
  
   console.log("amount " + amount)
+  
   const completePercentage = amount > 0 ? Math.round(( completed / amount) * 100) : 0;
   console.log("completePercentage " + completePercentage)
   console.log("completed out of handle" + completed)
