@@ -29,8 +29,7 @@ export function HabitDay({ defaultcompleted = 0, amount = 0, date }: HabitDayPro
   const dayOfWeek = dayjs(date).format('dddd');
 
   function handleCompletedChanged(completed: number) {    
-    setCompleted(completed);
-    console.log("completed " + completed)
+    setCompleted(completed);    
   }
 
     return (
