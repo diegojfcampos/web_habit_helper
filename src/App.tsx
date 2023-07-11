@@ -11,14 +11,14 @@ export function App() {
        <Header/>      
 
        <ScrollArea.Root>
-        <ScrollArea.Viewport />
-        <ScrollArea.Scrollbar orientation="horizontal">
-          <SummaryTable />
-          <ScrollArea.Thumb />
-        </ScrollArea.Scrollbar>
-        <ScrollArea.Corner />
-      </ScrollArea.Root>
-
+          <ScrollArea.Viewport>
+            <SummaryTable />
+          </ScrollArea.Viewport>
+          <ScrollArea.Scrollbar orientation="horizontal">
+            <ScrollArea.Thumb />
+          </ScrollArea.Scrollbar>
+          <ScrollArea.Corner />
+        </ScrollArea.Root>
       </div>
     </div>
   )
