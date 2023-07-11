@@ -1,4 +1,4 @@
-# web_habit_helper
+# Web Habit Helper
 
 A WEB application Empowering people by providing high-performance through habit trackers made with React JS, Vite, TypeScript, Radix, and Tailwind CSS, delivering a seamless and responsive user experience.
 
