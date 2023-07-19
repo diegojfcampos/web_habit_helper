@@ -15,12 +15,17 @@ export function NewHabitForm(){
     async function createNewhabit(event: FormEvent){
         event.preventDefault();
         
-        if(!title || weekDays.length ===0) return
+        if(!title || weekDays.length ===0 ) return
 
-        await api.post('/habits', {
+        const response = await api.post('/habits', {
             title,
             weekDays,        
         })
+
+        if (response.data.message === "Habit Already Exists") {
+            alert('Habit Already Exists')
+            return;
+          }
 
         setTitle('')
         setWeekDays([])
